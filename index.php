@@ -1,9 +1,5 @@
 <?php
 require_once("./controllers/todo.php");
-$error = 'erreur';
-print_r($_GET);
-print_r($_POST);
-
 
 $filename = str_replace("index.php", "", $_SERVER["SCRIPT_FILENAME"]);
 
@@ -18,7 +14,6 @@ if (isset($_GET["action"]) && $_GET["action"] != "") {
         $action($params[2]);
     } else {
         $action();
-        require_once("views/accueil.php");
     }
 } else {
     require_once($filename . "controllers/todo.php");

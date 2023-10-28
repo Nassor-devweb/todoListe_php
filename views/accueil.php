@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
+    <base href="/dyma/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/style.css">
+    <link rel="stylesheet" href="public/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&family=Open+Sans:wght@400;700&family=Roboto:wght@400;700&family=Russo+One&display=swap" rel="stylesheet">
     <title>Todo</title>
     <script defer src="./public/index.js"></script>
@@ -16,8 +17,8 @@
         <div class="content">
             <div class="todo-contenair">
                 <h1>Ma todo</h1>
-                <form action="./todo/save_todo" method="POST" class="todo-form">
-                    <input type="text" name="tache" placeholder="Entrez une tâche">
+                <form action="todo/save_todo" method="POST" class="todo-form">
+                    <input type="text" name="tache" placeholder="Entrez une tâche" value=<?= (isset($_POST["tache"]) && isset($error)) ? $_POST["tache"] : "" ?>>
                     <button type="submit" class="btn">Ajouter</button>
                 </form>
                 <?= isset($error) ? "<p class='text-danger'>$error</p>" : "" ?>
