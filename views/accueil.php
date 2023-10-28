@@ -16,12 +16,11 @@
         <div class="content">
             <div class="todo-contenair">
                 <h1>Ma todo</h1>
-                <form action="index.php?action=todo/save_todo" method="POST" class="todo-form">
+                <form action="./todo/save_todo" method="POST" class="todo-form">
                     <input type="text" name="tache" placeholder="Entrez une tâche">
                     <button type="submit" class="btn">Ajouter</button>
                 </form>
-                <?php //echo ($error) ? "<p class='text-danger'>$error</p>" : "" 
-                ?>
+                <?= isset($error) ? "<p class='text-danger'>$error</p>" : "" ?>
                 <ul class="todo-liste">
                     <?php foreach ($allTodo as $todo) {
                         $affichageTodo = "";
