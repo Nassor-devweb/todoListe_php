@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    --font-family: 'Open Sans', 'sans-serif';
+    --primary-color: #8e44ad;
+    --dark: #2c3e50;
+    --background-light: #ecf0f1;
+    --text-color: #444;
+    --text-color-light: #fff;
+    --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    --border: 1px solid #95a5a6;
+    --danger: #e74c3c;
+
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "OpenSans";
+    font-family: var(--font-family);
+    background-color: var(--background-light);
+}
+
+header {
+    background-color: var(--primary-color);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.container {
+    font-size: 1.6rem;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column;
+    color: var(--text-color);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--text-color-light);
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-danger {
+    color: var(--danger);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.todo-contenair {
+    padding: 1.5rem;
+    background-color: white;
+    border: var(--border);
+    border-radius: 3px;
+    min-width: 60rem;
+    min-height: 40rem;
+    box-shadow: var(--box-shadow);
+}
+
+.todo-contenair h1 {
+    text-align: center;
+}
+
+.todo-form {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.todo-form input {
+    margin-right: 0.5rem;
+    padding: 10px 15px;
+    border: var(--border);
+    border-radius: 3px;
+    flex: auto;
+}
+
+.todo-form button {
+    flex: 1;
+    max-width: 10rem;
+}
+
+.btn {
+    background-color: white;
+    font-weight: 700;
+    color: var(--text-color);
+    font-size: 1.6rem;
+    border: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 0px 5px;
+    box-shadow: var(--box-shadow);
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+}
+
+.tacheValider {
+    text-decoration: line-through;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-color-light)
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    color: var(--text-color-light)
+}
+
+.btn-small {
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+}
+
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    padding: 0.3rem 1.5rem;
+}
+
+
+.todo-item:nth-child(odd) {
+    background-color: var(--background-light);
+}
+
+.todo-name {
+    flex: 1;
+    margin-right: 0.5rem;
+}
+
+footer {
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color-light);
+}
+
+footer p {
+    text-align: center;
+}
