@@ -10,49 +10,68 @@ $errors = [
 
 function getAlltodo()
 {
-    require("models/todo_data.php");
-    $allTodo = getAlltodo_data();
-    require_once("views/accueil.php");
+    global $isLogged;
+    global $signinUrl;
+    if ($isLogged) {
+        require("models/todo_data.php");
+        $allTodo = getAlltodo_data();
+        require_once("views/accueil.php");
+    } else {
+        header("Location: $signinUrl");
+    }
 }
-
 
 function save_todo()
 {
     global $urlname;
     global $errors;
-    if (isset($_POST["tache"])) {
-        if (empty($_POST["tache"])) {
-            require("models/todo_data.php");
-            $allTodo = getAlltodo_data();
-            $error = $errors["empty"];
-            require_once("views/accueil.php");
-        } elseif (mb_strlen($_POST["tache"]) < 3) {
-            require("models/todo_data.php");
-            $allTodo = getAlltodo_data();
-            $error = $errors["lenTache"];
-            require_once("views/accueil.php");
-        } else {
-            require_once("models/todo_data.php");
-            $allTodo = save_todo_data($_POST["tache"]);
-            header("Location: $urlname");
+    global $isLogged;
+    global $signinUrl;
+    if ($isLogged) {
+        if (isset($_POST["tache"])) {
+            if (empty($_POST["tache"])) {
+                require("models/todo_data.php");
+                $allTodo = getAlltodo_data();
+                $error = $errors["empty"];
+                require_once("views/accueil.php");
+            } elseif (mb_strlen($_POST["tache"]) < 3) {
+                require("models/todo_data.php");
+                $allTodo = getAlltodo_data();
+                $error = $errors["lenTache"];
+                require_once("views/accueil.php");
+            } else {
+                require_once("models/todo_data.php");
+                $allTodo = save_todo_data($_POST["tache"]);
+                require_once("views/accueil.php");
+            }
         }
+    } else {
+        header("Location: $signinUrl");
     }
 }
 function editTodo(int $id)
 {
-    global $urlname;
-    require_once("models/todo_data.php");
-    $allTodo = editTodo_data($id);
-    require_once("views/accueil.php");
-    header("Location: $urlname");
+    global $isLogged;
+    global $signinUrl;
+    if ($isLogged) {
+        require_once("models/todo_data.php");
+        $allTodo = updateTache_data($id);
+        require_once("views/accueil.php");
+    } else {
+        header("Location: $signinUrl");
+    }
 }
 
 function deleteTodo(int $id)
 {
-    global $urlname;
-    require_once("models/todo_data.php");
-    $allTodo = deleteTodo_data($id);
-    http_response_code(200);
-    require_once("views/accueil.php");
-    header("Location: $urlname");
+    global $isLogged;
+    global $signinUrl;
+    if ($isLogged) {
+        require_once("models/todo_data.php");
+        $allTodo = deleteTodo_data($id);
+        require_once("views/accueil.php");
+        http_response_code(200);
+    } else {
+        header("Location: $signinUrl");
+    }
 }

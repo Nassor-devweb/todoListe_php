@@ -58,6 +58,33 @@ header {
     font-weight: 700;
 }
 
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input {
+    margin-bottom: 1rem;
+    border-radius: 3px;
+    border: 1px solid #bdc3c7;
+    padding: 5px 5px;
+}
+
+.btn-send {
+    display: block;
+    margin: auto auto;
+}
+
+form {
+    padding: 1.5rem;
+    background-color: white;
+    border: var(--border);
+    border-radius: 3px;
+    min-width: 60rem;
+    min-height: 10rem;
+    box-shadow: var(--box-shadow);
+}
+
 .todo-contenair {
     padding: 1.5rem;
     background-color: white;
@@ -66,6 +93,7 @@ header {
     min-width: 60rem;
     min-height: 40rem;
     box-shadow: var(--box-shadow);
+    margin: 1rem;
 }
 
 .todo-contenair h1 {
@@ -89,6 +117,24 @@ header {
 .todo-form button {
     flex: 1;
     max-width: 10rem;
+}
+
+.btn-sign {
+    background-color: white;
+    font-weight: 700;
+    color: var(--text-color);
+    font-size: 1.6rem;
+    border: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: var(--box-shadow);
+}
+
+form h1 {
+    display: block;
+    text-align: center;
+    margin-top: 0px;
 }
 
 .btn {

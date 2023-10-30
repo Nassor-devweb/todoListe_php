@@ -1,8 +1,14 @@
 <?php
 require_once("./controllers/todo.php");
+require_once("middleware/auth.php");
+createSession();
+$isLogged = authQuerry();
+$host = $_SERVER['HTTP_HOST'];
+$script_name = $_SERVER["SCRIPT_NAME"];
+$script_name = str_replace("index.php", "", $script_name);
+$signinUrl = "http://" . $host . $script_name . "user/signin_user";
 
 $filename = str_replace("index.php", "", $_SERVER["SCRIPT_FILENAME"]);
-
 if (isset($_GET["action"]) && $_GET["action"] != "") {
     $params = explode("/", $_GET["action"]);
     $controller = $params[0];
@@ -19,20 +25,3 @@ if (isset($_GET["action"]) && $_GET["action"] != "") {
     require_once($filename . "controllers/todo.php");
     getAlltodo();
 }
-
-//$tache;
-//$sanatizeTache;
-//$error = "";
-//$filename = __DIR__ . "/data/todo.json";
-//$todos = [];
-
-//if (isset($_POST["tache"])) {
-//    $tache = new Todo($_POST["tache"], false, time());
-//    $sanatizeTache = $tache->sanitize();
-//    if ($tache->getError($sanatizeTache)) {
-//        $error = $tache->getError($sanatizeTache);
-//   } else {
-//       $tache->saveTodo($filename);
- //   }
-//}
-//$todos = Todo::getAlltodo($filename);

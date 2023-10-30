@@ -26,15 +26,15 @@
                     <?php foreach ($allTodo as $todo) {
                         $affichageTodo = "";
                         $affichageTodo .= "<li class='todo-item'>";
-                        $affichageTodo .= ($todo["done"]) ? "<span class='todo-name tacheValider'>" . $todo["tache"] . "</span>" : "<span class='todo-name'>" . $todo["tache"] . "</span>";
-                        $affichageTodo .= "<a href='./todo/editTodo/" . $todo["id"] . "' data-id='" . $todo["id"] . "'>";
-                        if ($todo["done"]) {
+                        $affichageTodo .= ($todo["done_tache"]) ? "<span class='todo-name tacheValider'>" . $todo["nom_tache"] . "</span>" : "<span class='todo-name'>" . $todo["nom_tache"] . "</span>";
+                        $affichageTodo .= "<a href='./todo/editTodo/" . $todo["id_tache"] . "' data-id='" . $todo["id_tache"] . "'>";
+                        if ($todo["done_tache"]) {
                             $affichageTodo .=  "<button class='btn btn-primary btn-small btn-edit'>Annuler</button>";
                         } else {
                             $affichageTodo .=  "<button class='btn btn-primary btn-small'>Valider</button>";
                         };
                         $affichageTodo .= "</a>";
-                        $affichageTodo .= "<a href='./todo/deleteTodo/" . $todo["id"] . "' data-id='" . $todo["id"] . "'>";
+                        $affichageTodo .= "<a href='./todo/deleteTodo/" . $todo["id_tache"] . "' data-id='" . $todo["id_tache"] . "'>";
                         $affichageTodo .= "<button class='btn btn-danger btn-small'>Supprimer</button>";
                         $affichageTodo .= "</a>";
                         $affichageTodo .= "</li>";
